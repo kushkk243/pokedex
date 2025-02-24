@@ -1,6 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState, useEffect, SetStateAction } from "react";
 import { Barlow_Condensed } from "next/font/google";
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
@@ -10,6 +9,7 @@ const barlow = Barlow_Condensed({
 interface PokeCardProps {
     url: string;
 };
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 function checkResponse (id: number, setUrl: Function, curl: string): string {
     fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`)
     .then(response => {
