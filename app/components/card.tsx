@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 import { Barlow_Condensed } from "next/font/google";
 const barlow = Barlow_Condensed({
     subsets: ["latin"],
