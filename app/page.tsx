@@ -8,13 +8,14 @@ const lexend = Lexend({
   display:"swap"
 });
 export default function Home() {
-  const [pokelist, setPokeList] = useState();
+  const [pokelist, setPokeList] = useState([]);
   const [limit, setLimit] = useState(20);
-  useEffect(()=>{
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
-    .then(response => response.json())
-    .then(json => setPokeList(json.results))
-    .catch(error => console.error(error));
+  useEffect(()=>{ async function fetchPoke () {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
+    const json = await response.json();
+    setPokeList(json.results);
+    }
+    fetchPoke();
   },[limit]);
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
